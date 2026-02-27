@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyCast – Weather</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- Background -->
+  <div class="background-gradient"></div>
+  <div class="background-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <main class="container">
+    <section class="glass-card">
+      <!-- Top app bar -->
+      <header class="app-header">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          <h1>SkyCast</h1>
+        </div>
+        <span class="tagline">Instant city weather</span>
+      </header>
+
+      <!-- Search -->
+      <div class="search-box">
+        <input
+          type="text"
+          id="city-input"
+          placeholder="Search city (e.g. Bengaluru)"
+          autocomplete="off"
+        />
+        <button id="search-btn" aria-label="Search city">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16.65" y1="16.65" x2="21" y2="21"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Loading -->
+      <div id="loading-indicator" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Fetching latest weather...</p>
+      </div>
+
+      <!-- Error -->
+      <div id="error-message" class="error-message hidden">
+        <p>City not found. Try checking spelling or searching another place.</p>
+      </div>
+
+      <!-- Weather content -->
+      <section id="weather-display" class="weather-panel hidden">
+        <div class="current-weather">
+          <div class="location-row">
+            <h2 id="city-name">—</h2>
+            <span class="pill" id="time-label">Current</span>
+          </div>
+
+          <div class="temp-row">
+            <div class="temp-main">
+              <span id="current-temp">--</span>
+              <span class="unit">°C</span>
+            </div>
+            <p id="weather-desc" class="weather-desc">—</p>
+          </div>
+        </div>
+
+        <div class="weather-details">
+          <div class="detail-item">
+            <span class="detail-icon">🌬️</span>
+            <span class="label">Wind</span>
+            <span class="value">
+              <span id="wind-speed">--</span> km/h
+            </span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-icon">💧</span>
+            <span class="label">Humidity</span>
+            <span class="value">
+              <span id="humidity">--</span> %
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <span>Powered by Open‑Meteo</span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
